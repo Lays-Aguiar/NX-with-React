@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import * as S from './style';
-
-interface Todo {
-  title: string;
-}
+import { Todo } from '@myorg/data';
 
 const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
