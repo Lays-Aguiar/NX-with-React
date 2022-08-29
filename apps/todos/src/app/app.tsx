@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import * as S from './style';
 import { Todo } from '@myorg/data';
+import { Button, Todos } from '@myorg/ui';
 
 const App = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -23,15 +24,10 @@ const App = () => {
   }
   return (
     <S.Container>
-      <h1>Todos</h1>
-      <ul>
-        {todos.map((t) => (
-          <li className={'todo'}>{t.title}</li>
-        ))}
-      </ul>
-      <S.Button id={'add-todo'} onClick={addTodo}>
-        Add Todo
-      </S.Button>
+      <Todos todos={todos} />
+      <Button id={'add-todo'} onClick={addTodo}>
+        Add New Title
+      </Button>
     </S.Container>
   );
 };

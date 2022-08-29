@@ -5,7 +5,6 @@ export const Container = styled.div`
   flex-direction: column;
   background: #f5f5f5;
   height: 100vh;
-  justify-content: center;
   align-items: center;
   font: 500 1.125rem 'Raleway', sans-serif;
 `;
