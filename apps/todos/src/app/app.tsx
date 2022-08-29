@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { METHODS } from 'http';
+import { useEffect, useState } from 'react';
 import * as S from './style';
 
 interface Todo {
@@ -6,18 +7,26 @@ interface Todo {
 }
 
 export function App() {
+  useEffect(() => {
+    fetch('/api/todos')
+      .then((_) => _.json())
+      .then(setTodos);
+  }, []);
+
   const [todos, setTodos] = useState<Todo[]>([
     { title: 'Todo 1' },
     { title: 'Todo 2' },
   ]);
 
   function addTodo() {
-    setTodos([
-      ...todos,
-      {
-        title: `New todo ${Math.floor(Math.random() * 1000)}`,
-      },
-    ]);
+    fetch('/api/todos', {
+      method: 'POST',
+      body: '',
+    })
+      .then((_) => _.json())
+      .then((newTodo) => {
+        setTodos([...todos, newTodo]);
+      });
   }
   return (
     <S.Container>
