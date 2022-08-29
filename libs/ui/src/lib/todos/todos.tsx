@@ -5,7 +5,7 @@ export function Todos(props: { todos: Todo[] }) {
     <S.Container>
       <S.Title>Title Dynamics</S.Title>
       {props.todos.map((t) => (
-        <span className={'Title randow'}>{t.title}</span>
+        <span className={'Title random'}>{t.title}</span>
       ))}
     </S.Container>
   );
